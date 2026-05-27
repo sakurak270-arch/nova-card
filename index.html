@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova | Dash Synergy LLC</title>
+  <meta name="description" content="Nova - Marketing Manager / Operations Manager at Dash Synergy LLC">
+  <style>
+    :root {
+      --blue: #1688ff;
+      --blue-2: #51b7ff;
+      --navy: #061e3f;
+      --ink: #10233f;
+      --muted: #5f7189;
+      --line: rgba(22, 136, 255, 0.18);
+      --white: #ffffff;
+      --soft: #eef8ff;
+      --shadow: 0 22px 60px rgba(6, 30, 63, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Inter", "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(81, 183, 255, 0.28), transparent 34%),
+        linear-gradient(145deg, #ffffff 0%, #eef8ff 46%, #d8efff 100%);
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .card {
+      width: min(100%, 430px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .top {
+      position: relative;
+      min-height: 162px;
+      padding: 26px 26px 18px;
+      background:
+        linear-gradient(135deg, rgba(22, 136, 255, 0.96), rgba(81, 183, 255, 0.86)),
+        #1688ff;
+      color: var(--white);
+    }
+
+    .top::after {
+      position: absolute;
+      right: -58px;
+      bottom: -92px;
+      width: 210px;
+      height: 210px;
+      border: 28px solid rgba(255, 255, 255, 0.23);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .logo-wrap {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      width: 190px;
+      max-width: 76%;
+      min-height: 42px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .logo {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .identity {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 12vw, 58px);
+      line-height: 0.9;
+      letter-spacing: 0;
+    }
+
+    .initial {
+      display: grid;
+      width: 72px;
+      height: 72px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .content {
+      padding: 24px;
+    }
+
+    .role {
+      display: grid;
+      gap: 4px;
+      margin: 0;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .role span {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .company {
+      margin: 6px 0 22px;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--ink);
+      background: #ffffff;
+      text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .action:hover,
+    .action:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(22, 136, 255, 0.38);
+      box-shadow: 0 12px 30px rgba(22, 136, 255, 0.13);
+      outline: none;
+    }
+
+    .icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .text {
+      min-width: 0;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .value {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .save {
+      width: 100%;
+      min-height: 54px;
+      border: 0;
+      border-radius: 16px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      font: inherit;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(22, 136, 255, 0.25);
+    }
+
+    .save:focus-visible {
+      outline: 3px solid rgba(22, 136, 255, 0.28);
+      outline-offset: 3px;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mark {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 14px 0 0 var(--blue-2), 28px 0 0 #83d1ff;
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 10px;
+      }
+
+      .card {
+        border-radius: 22px;
+      }
+
+      .top,
+      .content {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+
+      .identity {
+        align-items: center;
+      }
+
+      .initial {
+        width: 58px;
+        height: 58px;
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Nova digital business card">
+    <section class="top">
+      <div class="logo-wrap">
+        <img class="logo" src="Konibet_LOGO.png" alt="konibet">
+      </div>
+      <div class="identity">
+        <h1>Nova</h1>
+        <div class="initial" aria-hidden="true">N</div>
+      </div>
+    </section>
+
+    <section class="content">
+      <p class="role">
+        <span>Marketing Manager</span>
+        <span>Operations Manager</span>
+      </p>
+      <p class="company">Dash Synergy LLC</p>
+
+      <div class="actions">
+        <a class="action" href="mailto:Kobayashi@konibet.com">
+          <span class="icon" aria-hidden="true">@</span>
+          <span class="text">
+            <span class="label">Email</span>
+            <span class="value">Kobayashi@konibet.com</span>
+          </span>
+        </a>
+
+        <a class="action" href="https://t.me/ACCHAN777">
+          <span class="icon" aria-hidden="true">T</span>
+          <span class="text">
+            <span class="label">Telegram</span>
+            <span class="value">@ACCHAN777</span>
+          </span>
+        </a>
+
+        <a class="action" href="https://konibet.com/">
+          <span class="icon" aria-hidden="true">W</span>
+          <span class="text">
+            <span class="label">Website</span>
+            <span class="value">konibet.com</span>
+          </span>
+        </a>
+      </div>
+
+      <button class="save" type="button" id="saveContact">Add to Contacts</button>
+
+      <div class="footer">
+        <span>konibet digital card</span>
+        <span class="mark" aria-hidden="true"></span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const saveButton = document.querySelector("#saveContact");
+
+    saveButton.addEventListener("click", () => {
+      const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Nova;;;",
+        "FN:Nova",
+        "ORG:Dash Synergy LLC",
+        "TITLE:Marketing Manager / Operations Manager",
+        "EMAIL;TYPE=INTERNET:Kobayashi@konibet.com",
+        "URL:https://konibet.com/",
+        "X-SOCIALPROFILE;TYPE=telegram:https://t.me/ACCHAN777",
+        "END:VCARD"
+      ].join("\n");
+
+      const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Nova-Dash-Synergy.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
